@@ -12,6 +12,7 @@ find_package(Qt6 COMPONENTS
         Core
         Gui
         Widgets
+        Network
         REQUIRED)
 
 #搜索头文件
@@ -43,5 +44,6 @@ target_link_libraries(MusicPlayer
         Qt6::Core
         Qt6::Gui
         Qt6::Widgets
+        Qt6::Network
 )
 

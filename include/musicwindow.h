@@ -6,6 +6,7 @@
 #define MUSICPLAYER__MUSICWINDOW_H_
 
 #include <QWidget>
+#include "MusicSearch.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MusicWindow; }
@@ -17,9 +18,11 @@ class MusicWindow : public QWidget {
  public:
   explicit MusicWindow(QWidget *parent = nullptr);
   ~MusicWindow() override;
-
+ public slots:
+  void searchMusic();
  private:
   Ui::MusicWindow *ui;
+  MusicSearch* musicSearch_;
 };
 
 #endif //MUSICPLAYER__MUSICWINDOW_H_

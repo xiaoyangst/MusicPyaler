@@ -7,11 +7,18 @@
 #include "musicwindow.h"
 #include "ui_MusicWindow.h"
 
+
 MusicWindow::MusicWindow(QWidget *parent) :
     QWidget(parent), ui(new Ui::MusicWindow) {
   ui->setupUi(this);
+  musicSearch_ = new MusicSearch(this);
+  connect(ui->searchlineEdit,&QLineEdit::returnPressed, this,&MusicWindow::searchMusic);
 }
 
 MusicWindow::~MusicWindow() {
   delete ui;
+}
+void MusicWindow::searchMusic() {
+  QString musicName = ui->searchlineEdit->text();
+  musicSearch_->search(musicName);
 }
