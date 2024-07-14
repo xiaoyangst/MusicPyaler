@@ -37,7 +37,6 @@ void MusicHttp::readData() {
   QByteArray data = reply->readAll();
 
   QFile file(filename_);
-  qDebug()<<filename_;
   if (!file.open(QFile::Append | QFile::WriteOnly)){
     qDebug()<<"打开文件失败"<<filename_;
     return;
@@ -58,7 +57,6 @@ bool MusicHttp::isError() {
   return state_ == MusicHttpState::MusicHttpErrorState;
 }
 QByteArray MusicHttp::readAll() {
-  qDebug()<<filename_;
 
   QFile file(filename_);
 

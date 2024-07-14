@@ -1,15 +1,6 @@
 ﻿{
   "list": [
     {
-      "musicName": "搁浅",
-      "albumName": "七里香",
-      "duration":238,
-      "path": "/music/七里香/搁浅/",
-      "mp3": "周杰伦-搁浅.mp3",
-      "lrc": "周杰伦-搁浅.lrc",
-      "img": "img.jpg"
-    },
-    {
       "musicName": "星座书上",
       "albumName": "自定义",
       "duration":239,

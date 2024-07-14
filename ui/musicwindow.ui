@@ -330,7 +330,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="startlabel">
          <property name="text">
           <string>00:00</string>
          </property>
@@ -356,7 +356,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QSlider" name="horizontalSlider">
+        <widget class="QSlider" name="playSlider">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -379,7 +379,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="endlabel">
          <property name="text">
           <string>04:00</string>
          </property>
@@ -414,6 +414,9 @@
        </item>
        <item>
         <widget class="QTabWidget" name="tabWidget">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="currentIndex">
           <number>0</number>
          </property>
@@ -441,7 +444,38 @@
             <number>0</number>
            </property>
            <item>
-            <widget class="QTableWidget" name="tableWidget"/>
+            <widget class="QTableWidget" name="localTableWidget">
+             <column>
+              <property name="text">
+               <string>mp3Url</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>lrcUrl</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>imgUrl</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>歌曲名称</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>专辑名称</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>播放时长</string>
+              </property>
+             </column>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -466,7 +500,38 @@
             <number>0</number>
            </property>
            <item>
-            <widget class="QTableWidget" name="tableWidget_2"/>
+            <widget class="QTableWidget" name="netTableWidget">
+             <column>
+              <property name="text">
+               <string>mp3Url</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>lrcUrl</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>imgUrl</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>歌曲名称</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>专辑名称</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>播放时长</string>
+              </property>
+             </column>
+            </widget>
            </item>
           </layout>
          </widget>

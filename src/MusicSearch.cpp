@@ -1,16 +1,15 @@
+
 #include "MusicSearch.h"
-#include <QJsonDocument>
-#include <QJsonParseError>
-#include <QJsonObject>
-#include <QJsonArray>
 
 MusicSearch::MusicSearch(QObject *parent) : QObject(parent) {
+  setHttpWeb("192.168.56.1",80);
   http_ = new MusicHttp("music.json", this);
 
   connect(http_,&MusicHttp::finishedRead, this,&MusicSearch::handleData);
 }
 void MusicSearch::search(const QString &music) {
-  QString httpUrl = QString("http://192.168.56.1:80/music/music.json");
+  QString httpUrl = QString("%1/music/%2/music.json").arg(httpUrl_,music);
+  qDebug()<<"httpUrl = "<<httpUrl;
   http_->get(httpUrl);
 }
 void MusicSearch::handleData() {
@@ -26,22 +25,13 @@ void MusicSearch::parseMusicJsonData(const QByteArray &jsonData) {
   }
   QJsonObject musicObject = musicDocument.object();
   QJsonArray musicArray = musicObject["list"].toArray();
-  for (int i = 0; i < musicArray.size(); i++) {
-    QJsonObject object = musicArray[i].toObject();
-    QString musicName = object["musicName"].toString();
-    QString albumName = object["albumName"].toString();
-    qint32 MusicDuration = object["duration"].toInt();
-    QString musicMp3 = object["mp3"].toString();
-    QString MusicLrc = object["lrc"].toString();
-    QString MusicImg = object["img"].toString();
-
-    qDebug()<<"musicName = "<<musicName;
-    qDebug()<<"albumName = "<<albumName;
-    qDebug()<<"MusicDuration = "<<MusicDuration;
-    qDebug()<<"musicMp3 = "<<musicMp3;
-    qDebug()<<"MusicLrc = "<<MusicLrc;
-    qDebug()<<"MusicImg = "<<MusicImg;
-  }
+  emit ToNetTable(musicArray);
+}
+void MusicSearch::setHttpWeb(QString ip, int port) {
+  httpUrl_ =  QString("http://%1:%2").arg(ip,QString::number(port));
+}
+QString MusicSearch::getHttpWeb() {
+  return httpUrl_;
 }
 
 
